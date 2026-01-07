@@ -2,7 +2,16 @@
 // Select Gujarat
 var gujarat = states.filter(ee.Filter.eq('ADM1_NAME', 'Gujarat'));
 
-Map.addLayer(gujarat, {color: 'blue'}, 'Gujarat');
+Map.addLayer(
+  gujarat.style({
+    color: '#08306b',
+    fillColor: '00000000',
+    width: 2
+  }),
+  {},
+  'Gujarat Boundary'
+);
+
 Map.centerObject(gujarat, 6);
 
 // Build geometry from lat/lon
@@ -17,7 +26,8 @@ var solarGujarat = solarPoints.filterBounds(gujarat);
 
 // Visualize Gujarat solar plants
 Map.addLayer(
-  solarGujarat.style({color: 'red', pointSize: 5}),
+  solarGujarat.style({color: '#d7191c', // strong red
+  pointSize: 5}),
   {},
   'Solar Plants in Gujarat'
 );
@@ -32,7 +42,7 @@ var ghi = ee.ImageCollection("ECMWF/ERA5_LAND/DAILY_AGGR")
 
 Map.addLayer(
   ghi,
-  {min: 1e7, max: 2.5e7, palette: ['blue','yellow','red'], opacity: 0.6}, 
+  {min: 1e7, max: 2.5e7, palette: ['blue','pink','red'], opacity: 0.6}, 
   "GHI (Target)"
 );
 
@@ -123,9 +133,15 @@ var predictedGHI = featureStack
 
 Map.addLayer(
   predictedGHI,
-  {min: 1e7, max: 2.5e7, palette: ['blue','pink','red'], opacity : 0.7},
-  "Predicted GHI"
+  {
+    min: 1.3e7,
+    max: 2.4e7,
+    palette: ['#4575b4', '#fee090', '#d73027'],
+    opacity: 0.8
+  },
+  'Predicted GHI'
 );
+
 
 // Converting the output of regression model to solar suitability 
 var suitability = predictedGHI
@@ -134,8 +150,13 @@ var suitability = predictedGHI
 
 Map.addLayer(
   suitability,
-  {min: 0, max: 1, palette: ['blue','green','red'], opacity: 0.8},
-  "Solar Suitability Index"
+  {
+    min: 0,
+    max: 1,
+    palette: ['#2c7bb6', '#ffffbf', '#d7191c'],
+    opacity: 0.85
+  },
+  'Solar Suitability Index'
 );
 
 
