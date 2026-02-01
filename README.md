@@ -59,10 +59,20 @@ The predicted GHI surface was normalized to produce a **Solar Suitability Index 
 This allows post-hoc classification into high / medium / low suitability zones.
 
 ---
+## Validation
+Validation was performed qualitatively by overlaying existing solar plant locations on the suitability map. Most installations lie within medium to high suitability zones, indicating consistency with real-world deployment.
 
-## Results (Upto Week 3)
+---
+## Outputs
+- StudyRegion + solar plants
+- Predicted GHI
+- Solar Suitability Index
+- GeoTIFF export for GIS use
+
+---
+## Results 
 - Generated a continuous **predicted GHI map** over Gujarat
-- Produced a **solar suitability index** highlighting physically favorable locations
+- Produced a **solar suitability index** map highlighting physically favorable locations
 - Avoided deployment-history bias inherent in classification-only approaches
 
 ---
@@ -70,15 +80,10 @@ This allows post-hoc classification into high / medium / low suitability zones.
 ## 🔗 Google Earth Engine Script
 You can view and run the full GEE script here, the code is present in the file named studyRegion_Gujarat.:
 
-**[GEE Script Link](https://code.earthengine.google.co.in/eac47770f097ff2805e69ace9f4a9abb?accept_repo=users%2Fujavalgandhi%2FEnd-to-End-GEE)**
+**[GEE Script Link](https://code.earthengine.google.co.in/8dce634a98f5531cee659f2c3e99eafe?accept_repo=users%2Fujavalgandhi%2FEnd-to-End-GEE)**
 
 ---
 
 ## Notes
 - Existing solar plant locations were used for spatial understanding and validation, not as training labels.
 - This approach is transferable to other regions without retraining.
-
----
-
-## Future Work
-- Validation against ground-measured solar data
