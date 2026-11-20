@@ -1,0 +1,7 @@
+Metric,Value
+Validation R²,0.6930
+Validation RMSE (J/m²),"600,695"
+Validation RMSE (kWh/m²),0.167
+Validation MAE (kWh/m²),0.135
+Relative RMSE (%),4.26%
+Spatial Holdout R²,0.5016

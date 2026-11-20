@@ -1,0 +1,5 @@
+.ua/
+.understand-anything/
+__pycache__/
+*.pyc
+venv/
